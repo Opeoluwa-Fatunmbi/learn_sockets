@@ -26,7 +26,7 @@ purge:
 	pip cache purge
 
 userv:
-	uvicorn opeoluwa.asgi:application --reload
+	uvicorn learn_sockets.asgi:application --reload
 	
 mmig: # run with "make mmig" or "make mmig app='app'"
 	if [ -z "$(app)" ]; then \

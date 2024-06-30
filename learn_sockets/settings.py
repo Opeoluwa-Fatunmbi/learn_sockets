@@ -21,6 +21,7 @@ ALLOWED_HOSTS = ["*"]
 # Application definition
 
 INSTALLED_APPS = [
+    "daphne",
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
@@ -28,6 +29,7 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "app",
+    "channels",
 ]
 
 MIDDLEWARE = [
@@ -45,7 +47,7 @@ ROOT_URLCONF = "learn_sockets.urls"
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
-        "DIRS": [],
+        "DIRS": [os.path.join(BASE_DIR, "templates")],
         "APP_DIRS": True,
         "OPTIONS": {
             "context_processors": [
@@ -59,6 +61,11 @@ TEMPLATES = [
 ]
 
 WSGI_APPLICATION = "learn_sockets.wsgi.application"
+ASGI_APPLICATION = "learn_sockets.asgi.application"
+CHANNEL_LAYERS = {
+   
+    "default": {"BACKEND": "channels.layers.InMemoryChannelLayer"},
+}
 
 
 # Database
